@@ -1,14 +1,7 @@
 variable "groups_config" {
   description = <<EOT
   List of map with `display_name` and `description` objects
-  ex: [
-    {
-        display_name    = "Admin"
-        description     = "Admin access to complete AWS estate"
-        aws_accounts_association = [
-          "11111112222", "11111113333"
-        ]
-    },
+  example: [
     {
         display_name    = "WorkloadAdmins"
         description     = "Admin access to workload and shared accounts"
@@ -28,7 +21,7 @@ variable "groups_config" {
 variable "users_config" {
   description = <<EOT
   List of users details map with `first_name`, `last_name`, `email_id`,`title`, `user_type`, `address`
-  ex: [
+  example: [
   {
     first_name = "Mohan"
     last_name  = "Kumar"
@@ -54,7 +47,7 @@ variable "users_config" {
 variable "vpn_groups_config" {
   description = <<EOT
   List of users details map with `display_name`, `users`
-  ex: [
+  example: [
   {
     display_name = "vpn-admin"
     users = [
