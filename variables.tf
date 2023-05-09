@@ -4,7 +4,7 @@ variable "groups_config" {
   example: [
     {
         display_name    = "WorkloadAdmins"
-        description     = "Admin access to workload and shared accounts"
+        description     = "Admin access to workload accounts"
         aws_accounts_association = [
           "11111112222", "11111113333"
         ]
@@ -26,7 +26,7 @@ variable "users_config" {
     first_name = "Mohan"
     last_name  = "Kumar"
     email_id   = "mohankumar@somedomain.com"
-    groups     = ["Admins", ]
+    groups     = ["WorkloadAdmins", ]
     title      = "Owner"
     user_type  = "fulltime"
     address    = "TN_India"
@@ -46,15 +46,15 @@ variable "users_config" {
 
 variable "vpn_groups_config" {
   description = <<EOT
-  List of users details map with `display_name`, `users`
-  example: [
-  {
-    display_name = "vpn-admin"
-    users = [
-      "mohankumar@somedomain.com"
+    List of VPN groups details map with `display_name`, `users`
+    example: [
+      {
+        display_name = "vpn-admin"
+        users = [
+          "mohankumar@somedomain.com"
+        ]
+      },
     ]
-  },
-  ]
   EOT
   type = list(object({
     display_name = string
