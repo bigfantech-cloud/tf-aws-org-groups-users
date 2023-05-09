@@ -1,7 +1,6 @@
-# ! These permission sets are duplicates of AWS managed permission sets.
-# ! This is to support the `SSO delegated admin` account 
-# ! to be able to attact permission sets on adding Users/Groups to Accounts.
-# ! Delegated accounts are not allowed to manage or use AWS given permiossion sets
+# ! Delegated Identity Center Admin account is not allowed to manage or use permiossion sets in AWS Organization management account
+# ! Below permission sets are duplicates of default permission sets found in management account
+# ! This is to facilitate the `SSO delegated admin` account to attact permission sets on adding Users/Groups to Accounts
 
 #----
 # ADMINISTRATOR ACCESS
