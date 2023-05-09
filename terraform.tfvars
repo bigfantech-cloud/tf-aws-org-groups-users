@@ -24,7 +24,7 @@ users_config = [
     groups     = ["WorkloadAdmins", ]
     title      = "Owner"
     user_type  = "fulltime"
-    address    = "head_office_address" # refer to locals block in data.tf for possible values.
+    address    = "head_office_address" # refer to locals block `office_address` in data.tf for possible values.
   },
 ]
 
