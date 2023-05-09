@@ -1,14 +1,3 @@
-locals {
-  user_to_list_of_groups = { for user in var.users_config : user.email_id => user.groups }
-  list_of_group_user_name_map = distinct(flatten([
-    for user, groups in local.user_to_list_of_groups : [for group in groups : {
-      "user_name"  = user
-      "group_name" = group
-    }]
-  ]))
-  users_to_groups_map = { for map in local.list_of_group_user_name_map : "${map.user_name}.${map.group_name}" => map }
-}
-
 resource "aws_identitystore_group" "all" {
   for_each = local.groups_config
 
