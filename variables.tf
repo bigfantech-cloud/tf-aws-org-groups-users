@@ -14,7 +14,7 @@ variable "groups_config" {
   type = list(object({
     display_name             = string
     description              = string
-    aws_accounts_association = optional(list(string))
+    aws_accounts_association = list(string)
   }))
 }
 
