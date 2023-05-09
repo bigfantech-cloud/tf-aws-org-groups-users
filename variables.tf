@@ -38,8 +38,8 @@ variable "users_config" {
     last_name  = string
     email_id   = string
     groups     = list(string)
-    title      = string
-    user_type  = string
+    title      = optional(string)
+    user_type  = optional(string)
     address    = string
   }))
 }
