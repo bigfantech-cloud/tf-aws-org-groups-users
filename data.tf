@@ -12,7 +12,7 @@ locals {
 
   permission_set_prefix = "sso_permissionset"
   office_address = {
-    gurugram_office_address = [{
+    head_office_address = [{
       formatted      = "TN, India"
       street_address = "Street A"
       locality       = "TN"
