@@ -26,7 +26,7 @@ variable "users_config" {
     first_name = "Mohan"
     last_name  = "Kumar"
     email_id   = "mohankumar@somedomain.com"
-    groups     = ["WorkloadAdmins", ]
+    groups     = ["Admins", ]
     title      = "Owner"
     user_type  = "fulltime"
     address    = "TN_India"
