@@ -8,7 +8,7 @@ locals {
   # SSO USERS
   #----
 
-  users = toset([for map in var.users_config : map.email_id])
+  users_config = { for map in var.users_config : map.email_id => map }
   list_of_group_user_name_map = distinct(flatten([
     for map in var.users_config : [for group in groups : {
       "user_name"  = map.email_id
@@ -21,9 +21,9 @@ locals {
   # SSO GROUPS
   #----
 
-  groups                                             = toset([for map in var.groups_config : map.display_name])
-  group_name_to_association_accounts                 = { for map in var.groups_config : map.display_name => map.aws_accounts_association }
-  
+  groups_config                      = { for map in var.groups_config : map.display_name => map }
+  group_name_to_association_accounts = { for map in var.groups_config : map.display_name => map.aws_accounts_association }
+
   identity_centre_user_name_to_user_id_map           = { for k, user in aws_identitystore_user.all : aws_identitystore_user.all[k].user_name => aws_identitystore_user.all[k].user_id }
   identity_centre_group_display_name_to_group_id_map = { for k, group in aws_identitystore_group.all : aws_identitystore_group.all[k].display_name => aws_identitystore_group.all[k].group_id }
 
@@ -31,7 +31,7 @@ locals {
   # VPN
   #----
 
-  vpn_groups = toset([for map in var.vpn_groups_config : map.display_name])
+  vpn_groups_config = { for map in var.vpn_groups_config : map.display_name => map }
   vpn_list_of_group_user_name_map = distinct(flatten([
     for map in var.vpn_groups_config : [for user in map.users : {
       "user_name"  = user
