@@ -10,7 +10,7 @@ locals {
 
   users_config = { for map in var.users_config : map.email_id => map }
   list_of_group_user_name_map = distinct(flatten([
-    for map in var.users_config : [for group in groups : {
+    for map in var.users_config : [for group in map.groups : {
       "user_name"  = map.email_id
       "group_name" = group
     }]
