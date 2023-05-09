@@ -1,5 +1,5 @@
 resource "aws_ssoadmin_account_assignment" "workloadadmins" {
-  for_each = local.group_name_to_association_accounts["WorkloadAdmins"]
+  for_each = toset(local.group_name_to_association_accounts["WorkloadAdmins"])
 
   instance_arn       = local.identity_store_instance_arn
   permission_set_arn = aws_ssoadmin_permission_set.administratoraccess_custom.arn
