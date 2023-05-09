@@ -35,7 +35,7 @@ locals {
       "group_name" = group
     }]
   ]))
-  vpn_groups_to_users_map = { for map in local.vpn_list_of_group_user_name_map : "${map.group_name}.${map.user_name}" => map }
+  vpn_groups_to_users_map = { for map in local.vpn_list_of_group_user_name_map : "${map.group_name}_${map.user_name}" => map }
 
   vpn_identity_centre_group_display_name_to_group_id_map = { for k, group in aws_identitystore_group.vpn_all : aws_identitystore_group.vpn_all[k].display_name => aws_identitystore_group.vpn_all[k].group_id }
 
