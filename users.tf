@@ -13,7 +13,8 @@ resource "aws_identitystore_user" "all" {
   }
 
   emails {
-    value = each.value["email_id"]
+    primary = true
+    value   = each.value["email_id"]
   }
 
   dynamic "addresses" {
